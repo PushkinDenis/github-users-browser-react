@@ -1,14 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "@atoms/index.ts";
-import { Input } from "@atoms/index.ts";
-
-// import { App } from "./App";
+import { App } from "./App.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Button type={"submit"} textContent={"Кнопка"} />
-    <Button type={"submit"} className={"button1"} textContent={"Кнопка"} />
-    <Input type={"text"} placeholder={"Find user"} />
-    <Input type={"checkbox"} />
+    <App />
   </React.StrictMode>,
 );

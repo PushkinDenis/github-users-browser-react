@@ -13,7 +13,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": "/src",
-      "@atoms": "/src/components/atoms",
+      "@atoms": "/src/components/atoms/index.ts",
+      "@organisms": "/src/components/organisms/index.ts",
     },
   },
 });
