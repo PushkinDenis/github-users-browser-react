@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "./components/atoms/button/button.tsx";
-import { Input } from "./components/atoms/input/input.tsx";
+import { Button } from "@atoms/index.ts";
+import { Input } from "@atoms/index.ts";
 
 // import { App } from "./App";
 ReactDOM.createRoot(document.getElementById("root")!).render(
