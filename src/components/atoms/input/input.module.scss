@@ -1,0 +1,12 @@
+.input {
+  color: red;
+  &-text {
+    display: flex;
+  }
+  &-checkbox {
+    display: flex;
+  }
+}
+.wrapper {
+  display: flex;
+}
