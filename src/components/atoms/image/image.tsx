@@ -3,8 +3,8 @@ import { clsx } from "clsx";
 import styles from "./image.module.scss";
 
 type Image = {
-  src?: string;
-  alt?: string;
+  src: string;
+  alt: string;
   className?: string;
 };
 export const Image: FC<Image> = ({ src, alt, className }) => {
