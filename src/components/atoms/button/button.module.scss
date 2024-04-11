@@ -3,4 +3,16 @@
 .button {
   width: fit-content;
   color: $colorWhite;
+  font-size: $fontBig;
+  border: 2px solid $colorWhite;
+  border-radius: 15px;
+  padding: 10px;
+  &:hover {
+    color: $colorGrey;
+    border: 2px solid $colorGrey;
+  }
+  &:active {
+    color: $colorWhite;
+    border: 2px solid $colorWhite;
+  }
 }

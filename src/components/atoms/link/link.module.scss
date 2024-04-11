@@ -3,4 +3,13 @@
 .link {
   font-family: inherit;
   color: $colorWhite;
+  font-size: $fontNormal;
+  width: fit-content;
+  height: fit-content;
+  &:hover {
+    color: $colorGrey;
+  }
+  &:active {
+    color: $colorWhite;
+  }
 }
