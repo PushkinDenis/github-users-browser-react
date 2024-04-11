@@ -1,5 +1,8 @@
+@import "@variables";
+
 .header {
+  height: 200px;
   width: 100%;
   display: flex;
-  flex-grow: 1;
+  background-color: $colorPurple;
 }
