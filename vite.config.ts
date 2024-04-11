@@ -16,6 +16,7 @@ export default defineConfig({
       "@atoms": "/src/components/atoms/index.ts",
       "@organisms": "/src/components/organisms/index.ts",
       "@variables": "/variables.scss",
+      "@icons": "./public/icons",
     },
   },
 });
