@@ -2,10 +2,13 @@ import styles from "./input.module.scss";
 import { FC } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import "../../../../variables.scss";
+
 type Input = {
   type?: "text" | "password" | "radio" | "checkbox" | "hidden" | "button" | "image" | "reset" | "file" | "submit";
   placeholder?: string;
   value?: string;
+  label?: string;
 };
 
 const theme = createTheme({
@@ -13,32 +16,35 @@ const theme = createTheme({
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          color: "#ffff",
-          fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji",
-          borderColor: "#ffff",
+          color: "var(--color-white)",
+          fontFamily: `var(--github-font)`,
+          fontSize: `var(--font-small)`,
+          borderColor: "var(--color-white)",
           "&.Mui-focused ": {
-            color: "#ffff",
+            color: "var(--color-white)",
+            fontSize: "var(--font-small)",
           },
         },
       },
     },
+
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          color: "#ffff",
-          borderColor: "#ffff",
+          color: "var(--color-white)",
+          borderColor: "var(--color-white)",
           ".MuiOutlinedInput-notchedOutline": {
-            borderColor: "#ffff",
-            borderWidth: "1px",
+            borderColor: "var(--color-white)",
+            borderWidth: "2px",
           },
 
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#ffff",
-            borderWidth: "1px",
+            borderColor: "var(--color-white)",
+            borderWidth: "2px",
           },
 
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#ffff",
+            borderColor: "var(--color-white)",
             borderWidth: "2px",
           },
         },
@@ -46,11 +52,12 @@ const theme = createTheme({
     },
   },
 });
+
 export const Input: FC<Input> = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <TextField id="outlined-search" label="Search field" type="search" inputProps={{ className: styles.input }} />
+        <TextField id="outlined-search" label="Search" type="search" inputProps={{ className: styles.input }} />
       </ThemeProvider>
     </>
   );
