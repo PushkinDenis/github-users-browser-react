@@ -7,7 +7,7 @@ export const App: FC = () => {
   return (
     <>
       <div className={clsx(styles.app)}>
-        <Header />;
+        <Header />
       </div>
     </>
   );

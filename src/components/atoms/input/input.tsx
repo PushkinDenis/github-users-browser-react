@@ -32,6 +32,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: "var(--color-white)",
+          width: "300px",
           borderColor: "var(--color-white)",
           ".MuiOutlinedInput-notchedOutline": {
             borderColor: "var(--color-white)",
