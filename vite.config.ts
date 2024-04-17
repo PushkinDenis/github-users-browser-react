@@ -17,6 +17,7 @@ export default defineConfig({
       "@organisms": "/src/components/organisms/index.ts",
       "@variables": "/variables.scss",
       "@icons": "./public/icons",
+      "@helpers": "/src/helpers/helpers.ts",
     },
   },
 });

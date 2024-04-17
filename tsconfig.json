@@ -11,6 +11,7 @@
       "@atoms": ["./src/components/atoms/index.ts"],
       "@organisms": ["./src/components/organisms/index.ts"],
       "@variables": ["./variables.scss"],
+      "@helpers": ["./src/helpers/helpers.ts"]
     },
 
     /* Bundler mode */
