@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../../../../variables.scss";
 
-type Input = {
+type InputProps = {
   type?: "text" | "password" | "radio" | "checkbox" | "hidden" | "button" | "image" | "reset" | "file" | "submit";
   placeholder?: string;
   value?: string;
@@ -54,7 +54,7 @@ const theme = createTheme({
   },
 });
 
-export const Input: FC<Input> = () => {
+export const Input: FC<InputProps> = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
