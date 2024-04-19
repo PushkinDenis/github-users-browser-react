@@ -1,7 +1,6 @@
 import styles from "./button.module.scss";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { clsx } from "clsx";
-import { UserCard, UserCardProps } from "@organisms";
 
 export type ButtonProps = {
   type?: "submit" | "reset" | "button" | undefined;
@@ -10,7 +9,7 @@ export type ButtonProps = {
   onClick: () => void;
 };
 
-export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
+export const Button: FC<ButtonProps> = ({ type, className, textContent, onClick }) => {
   // const [users, setUsers] = useState<any>([]);
   // const fetchUsers = async () => {
   //   const response = await fetch("https://api.github.com/users?since=0&per_page=10");
@@ -20,7 +19,7 @@ export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
   // };
   return (
     <>
-      <button type={type} className={clsx(styles.button, styles[`${className}`])}>
+      <button type={type} className={clsx(styles.button, styles[`${className}`])} onClick={onClick}>
         {textContent}
       </button>
       {/*{users && (*/}

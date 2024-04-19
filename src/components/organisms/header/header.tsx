@@ -5,7 +5,7 @@ import { Image, Input } from "@atoms";
 import { Navbar } from "@organisms";
 
 type HeaderProps = {
-  onButtonClick: () => void;
+  onButtonClick: (isClicked: boolean) => void;
 };
 
 export const Header: FC<HeaderProps> = ({ onButtonClick }) => {
