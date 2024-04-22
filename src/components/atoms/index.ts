@@ -4,3 +4,4 @@ export * from "./image/image.tsx";
 export * from "./link/link.tsx";
 export * from "./main/main.tsx";
 export * from "./text/text.tsx";
+export * from "./pagination/pagination.tsx";

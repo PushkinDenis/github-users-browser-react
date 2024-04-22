@@ -1,6 +1,6 @@
 .user-card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 200px);
   max-width: 800px;
   justify-items: center;
   align-items: center;
@@ -8,9 +8,5 @@
   background-color: var(--color-deep-purple);
   border: 2px solid var(--color-white);
   border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.user-card > p {
-  margin: 0 20px;
+  margin: 20px 0;
 }

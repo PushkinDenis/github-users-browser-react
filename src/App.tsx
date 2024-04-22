@@ -8,11 +8,7 @@ import styles from "./App.module.scss";
 export const App: FC = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const handleButtonClick = () => {
-    if (buttonClicked) {
-      setButtonClicked(false);
-    } else {
-      setButtonClicked(true);
-    }
+    setButtonClicked(true);
   };
   return (
     <>
