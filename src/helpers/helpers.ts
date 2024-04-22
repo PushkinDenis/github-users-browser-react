@@ -14,7 +14,7 @@ export const createCard = async () => {
       login: user.login,
       id: user.id,
       url: user.html_url,
-      avatar: user["avatar_url"],
+      avatar_url: user["avatar_url"],
     };
     userArr.push(gitUser);
   }
