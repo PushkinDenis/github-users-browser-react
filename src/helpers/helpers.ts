@@ -1,14 +1,13 @@
 import { UserCardProps } from "@organisms";
 
-export const fetchData = async () => {
-  const response = await fetch("https://api.github.com/users?since=0&per_page=100");
-  const json = await response.json();
-  return json;
+export const fetchData = async (usersPerPage: string) => {
+  const response = await fetch(`https://api.github.com/users?since=0&per_page=${usersPerPage}`);
+  return await response.json();
 };
 
 export const createCard = async () => {
   const userArr = [];
-  const users = await fetchData();
+  const users = await fetchData("100");
   for (const user of users) {
     const gitUser: UserCardProps = {
       login: user.login,

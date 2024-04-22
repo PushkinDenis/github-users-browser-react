@@ -12,4 +12,8 @@
   &:active {
     color: $colorWhite;
   }
+  &-card {
+    font-size: var(--font-small);
+    color: var(--color-white);
+  }
 }
