@@ -1,22 +1,30 @@
 // import { Button, Input } from "@atoms";
-import { FC, useState } from "react";
+import { FC, useState, createContext, Dispatch, SetStateAction } from "react";
 import { Header, Footer } from "@organisms";
 import { Main } from "@atoms";
 import { clsx } from "clsx";
 import styles from "./App.module.scss";
 
+export interface ButtonClickContextType {
+  buttonClick: ButtonClickContextType | boolean | undefined;
+  setButtonClick: Dispatch<SetStateAction<ButtonClickContextType | undefined>>;
+}
+
+export const ButtonClickContext = createContext<ButtonClickContextType | undefined>(undefined);
 export const App: FC = () => {
-  const [buttonClicked, setButtonClicked] = useState(false);
-  const handleButtonClick = () => {
-    setButtonClicked(true);
-  };
+  const [buttonClick, setButtonClick] = useState<ButtonClickContextType | undefined>(undefined);
   return (
-    <>
+    <ButtonClickContext.Provider
+      value={{
+        buttonClick,
+        setButtonClick,
+      }}
+    >
       <div className={clsx(styles.app)}>
-        <Header onButtonClick={handleButtonClick} />
-        <Main buttonClicked={buttonClicked} />
+        <Header />
+        <Main />
         <Footer />
       </div>
-    </>
+    </ButtonClickContext.Provider>
   );
 };

@@ -1,30 +1,28 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { clsx } from "clsx";
 import styles from "./main.module.scss";
 import { UserCard, UserCardProps } from "@organisms";
 import { fetchData } from "@helpers";
 import { Pagination } from "@atoms";
+import { ButtonClickContext } from "@/App.tsx";
 
-type MainProps = {
-  buttonClicked: boolean;
-};
-
-export const Main: FC<MainProps> = ({ buttonClicked }) => {
+export const Main: FC = () => {
   const [users, setUsers] = useState<UserCardProps[]>([]);
+  const { buttonClick } = useContext<any>(ButtonClickContext);
 
   useEffect(() => {
-    if (buttonClicked) {
+    if (buttonClick) {
       fetchData("200").then((result) => {
         setUsers(() => result);
         return users;
       });
     }
-  }, [buttonClicked]);
+  }, [buttonClick]);
 
   return (
     <>
       <div className={clsx(styles.main)}>
-        {buttonClicked && users && (
+        {buttonClick && users && (
           <div>
             {users.map((val, index) => (
               <div>
