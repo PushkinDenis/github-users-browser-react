@@ -1,23 +1,22 @@
-// import { Button, Input } from "@atoms";
 import { FC, useState, createContext, Dispatch, SetStateAction } from "react";
-import { Header, Footer } from "@organisms";
+import { Header, Footer, UserCardProps } from "@organisms";
 import { Main } from "@atoms";
 import { clsx } from "clsx";
 import styles from "./App.module.scss";
 
-export interface ButtonClickContextType {
-  buttonClick: ButtonClickContextType | boolean | undefined;
-  setButtonClick: Dispatch<SetStateAction<ButtonClickContextType | undefined>>;
-}
+export type UsersContextType = {
+  users: UserCardProps[] | undefined;
+  setUsers: Dispatch<SetStateAction<UserCardProps[]>>;
+};
 
-export const ButtonClickContext = createContext<ButtonClickContextType | undefined>(undefined);
+export const UsersContext = createContext<UsersContextType | undefined | UserCardProps[]>([]);
 export const App: FC = () => {
-  const [buttonClick, setButtonClick] = useState<ButtonClickContextType | undefined>(undefined);
+  const [users, setUsers] = useState<UserCardProps[]>([]);
   return (
-    <ButtonClickContext.Provider
+    <UsersContext.Provider
       value={{
-        buttonClick,
-        setButtonClick,
+        users,
+        setUsers,
       }}
     >
       <div className={clsx(styles.app)}>
@@ -25,6 +24,6 @@ export const App: FC = () => {
         <Main />
         <Footer />
       </div>
-    </ButtonClickContext.Provider>
+    </UsersContext.Provider>
   );
 };
