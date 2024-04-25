@@ -6,7 +6,6 @@ import { Pagination } from "@atoms";
 import { UsersContext } from "@/App.tsx";
 
 export const Main: FC = () => {
-  // const [user, setUser] = useState<UserCardProps[]>([]);
   const { users } = useContext<any>(UsersContext);
   return (
     <>

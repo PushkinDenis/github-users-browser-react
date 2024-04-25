@@ -20,7 +20,7 @@ export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
         className={clsx(styles.button, styles[`${className}`])}
         onClick={() => {
           if (users) {
-            fetchData("50").then((result) => setUsers(result));
+            fetchData("100", "0").then((result) => setUsers(result));
           }
         }}
       >
