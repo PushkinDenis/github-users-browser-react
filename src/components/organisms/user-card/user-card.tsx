@@ -12,13 +12,11 @@ export type UserCardProps = {
 
 export const UserCard: FC<UserCardProps> = ({ login, id, html_url, avatar_url }) => {
   return (
-    <>
-      <div className={clsx(styles[`user-card`])}>
-        <Text className={"text-small"} textContent={login} />
-        <Text className={"text-small"} textContent={id} />
-        <Link className={"link-card"} href={html_url} textContent={html_url} target={"_blank"} />
-        <Image src={avatar_url} alt={"avatar"} className={`avatar`} />
-      </div>
-    </>
+    <div className={clsx(styles[`user-card`])}>
+      <Text className={"text-small"} textContent={login} />
+      <Text className={"text-small"} textContent={id} />
+      <Link className={"link-card"} href={html_url} textContent={html_url} target={"_blank"} />
+      <Image src={avatar_url} alt={"avatar"} className={`avatar`} />
+    </div>
   );
 };
