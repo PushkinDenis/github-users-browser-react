@@ -5,3 +5,5 @@ export * from "./link/link.tsx";
 export * from "./main/main.tsx";
 export * from "./text/text.tsx";
 export * from "./pagination/pagination.tsx";
+export * from "./test/Test.tsx";
+export * from "./error/error.tsx";
