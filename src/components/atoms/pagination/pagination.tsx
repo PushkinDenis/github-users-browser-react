@@ -1,8 +1,9 @@
 import { FC, useContext } from "react";
-import { Pagination as PaginationMui } from "@mui/material";
+import { Pagination as PaginationMui, PaginationItem } from "@mui/material";
 import { fetchData } from "@helpers";
-import { UsersContext } from "@/App.tsx";
+import { PageContext, UsersContext } from "@/App.tsx";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Link, useLocation } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -46,10 +47,14 @@ const theme = createTheme({
 
 export const Pagination: FC = () => {
   const { setUsers } = useContext<any>(UsersContext);
+  const location = useLocation();
+  console.log(location);
   return (
     <ThemeProvider theme={theme}>
       <PaginationMui
         count={1000}
+        defaultPage={parseInt(location.search.slice(6))}
+        renderItem={(item) => <PaginationItem component={Link} to={`/github-users-browser-react/?page=${item.page}`} {...item} />}
         color="primary"
         onChange={(event, page) => {
           console.log(event);
