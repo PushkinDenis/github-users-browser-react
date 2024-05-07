@@ -1,4 +1,4 @@
-import { FC, useState, createContext, Dispatch, SetStateAction, useEffect } from "react";
+import { FC, useState, createContext, Dispatch, SetStateAction } from "react";
 import { Header, Footer, UserCardProps } from "@organisms";
 import { Main } from "@atoms";
 import { clsx } from "clsx";

@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import { Pagination as PaginationMui, PaginationItem } from "@mui/material";
 import { fetchData } from "@helpers";
-import { PageContext, UsersContext } from "@/App.tsx";
+import { UsersContext } from "@/App.tsx";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
 
