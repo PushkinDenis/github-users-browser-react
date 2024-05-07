@@ -1,8 +1,7 @@
 import styles from "./button.module.scss";
 import { FC, useContext } from "react";
 import { clsx } from "clsx";
-import { UsersContext } from "@/App.tsx";
-import { fetchData } from "@helpers";
+import { ClickContext } from "@/App.tsx";
 
 export type ButtonProps = {
   type?: "submit" | "reset" | "button" | undefined;
@@ -11,17 +10,14 @@ export type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
-  const { users, setUsers } = useContext<any>(UsersContext);
-
+  const { setClick } = useContext<any>(ClickContext);
   return (
     <>
       <button
         type={type}
         className={clsx(styles.button, styles[`${className}`])}
         onClick={() => {
-          if (users) {
-            fetchData("100", "0").then((result) => setUsers(result));
-          }
+          setClick(true);
         }}
       >
         {textContent}
