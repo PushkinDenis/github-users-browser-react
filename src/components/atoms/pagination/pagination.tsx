@@ -53,7 +53,7 @@ export const Pagination: FC = () => {
     <ThemeProvider theme={theme}>
       <PaginationMui
         count={1000}
-        defaultPage={parseInt(location.search.slice(6))}
+        defaultPage={location.search.slice(6) === "" ? 1 : parseInt(location.search.slice(6))}
         renderItem={(item) => <PaginationItem component={Link} to={`/github-users-browser-react/?page=${item.page}`} {...item} />}
         color="primary"
         onChange={(event, page) => {
