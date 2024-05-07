@@ -14,7 +14,7 @@ export const Main: FC = () => {
 
   useEffect(() => {
     setPage(() => location.search.slice(6));
-    fetchData(`100`, `${page}00`).then((result) => setUsers(result));
+    location.search.slice(6) === "1" ? fetchData(`100`, `0`).then((result) => setUsers(result)) : fetchData(`100`, `${page}00`).then((result) => setUsers(result));
   }, [location.search, page]);
 
   return (
