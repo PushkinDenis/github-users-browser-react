@@ -10,3 +10,22 @@
   border-radius: 20px;
   margin: 20px 0;
 }
+@media only screen and (max-width: 600px) {
+  .user-card {
+    max-width: 360px;
+    height: 50px;
+    font-size: 8px;
+    grid-template-columns: repeat(4, 90px);
+    margin: 5px;
+  }
+  .user-card > img {
+    width: 30px;
+    height: 30px;
+  }
+  .user-card > a {
+    font-size: 8px;
+  }
+  .user-card > p {
+    font-size: 8px;
+  }
+}
