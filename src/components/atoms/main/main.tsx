@@ -11,7 +11,7 @@ export const Main: FC = () => {
   const { users, setUsers } = useContext<any>(UsersContext);
   const { page, setPage } = useContext<any>(PageContext);
   const { click } = useContext<any>(ClickContext);
-  const [searchParams, setSearchParams] = useSearchParams("");
+  const [searchParams] = useSearchParams("");
   const location = useLocation();
 
   useEffect(() => {

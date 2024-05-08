@@ -14,6 +14,7 @@ export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
   const { setClick } = useContext<any>(ClickContext);
   const location = useLocation();
   let [searchParams, setSearchParams] = useSearchParams("");
+  console.log(searchParams);
   return (
     <>
       <button
