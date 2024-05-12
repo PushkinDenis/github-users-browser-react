@@ -15,15 +15,22 @@ export const Main: FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.search.slice(6) !== "") {
-      setPage(() => location.search.slice(6));
-      location.search.slice(6) === "1" ? fetchData(`100`, `0`).then((result) => setUsers(result)) : fetchData(`100`, `${page}00`).then((result) => setUsers(result));
+    const params = location.search.slice(6);
+    setPage(params);
+    if (params !== "" && params !== "1") {
+      try {
+        fetchData(`100`, `${params}00`).then((result) => setUsers(result));
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (params === "1") {
+      try {
+        fetchData(`100`, `0`).then((result) => setUsers(result));
+      } catch (error) {
+        console.log(error);
+      }
     }
-    if (click === true) {
-      setPage(() => location.search.slice(6));
-      location.search.slice(6) === "1" ? fetchData(`100`, `0`).then((result) => setUsers(result)) : fetchData(`100`, `${page}00`).then((result) => setUsers(result));
-    }
-  }, [location.search, page, click, searchParams]);
+  }, [location.search, page, searchParams, click]);
 
   return (
     <>
