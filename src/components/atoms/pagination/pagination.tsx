@@ -19,14 +19,15 @@ const theme = createTheme({
           },
           "&:hover": {
             backgroundColor: "var(--color-purple)",
+            opacity: "50%",
             color: "var(--color-white)",
           },
+
           "&.Mui-selected:hover": {
-            backgroundColor: "var(--color-purple)",
             color: "var(--color-white)",
           },
           "&.Mui-focused": {
-            backgroundColor: "var(--color-purple)",
+            backgroundColor: "white",
             color: "var(--color-white)",
           },
         },
