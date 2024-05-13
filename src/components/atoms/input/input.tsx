@@ -1,5 +1,5 @@
 import styles from "./input.module.scss";
-import { FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../../../../variables.scss";
@@ -55,13 +55,14 @@ const theme = createTheme({
   },
 });
 
-type UserType = {
+type UserSearchCardType = {
   login: string;
+  html_url: string;
 };
 
 export const Input: FC<InputProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState<any>([]);
+  const [result, setResult] = useState<UserSearchCardType | null>(null);
 
   const [debounced] = useDebounce(searchTerm, 1000);
 
@@ -79,12 +80,13 @@ export const Input: FC<InputProps> = () => {
     if (debounced) {
       fetchData();
     } else {
-      setResult([]);
+      setResult(null);
     }
   }, [debounced]);
 
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement;
+    setSearchTerm(target.value);
   };
 
   return (
@@ -92,7 +94,7 @@ export const Input: FC<InputProps> = () => {
       <ThemeProvider theme={theme}>
         <TextField id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
       </ThemeProvider>
-      {result && (
+      {result && result.login && (
         <>
           <div>{result.login}</div>
           <div>{result.html_url}</div>
