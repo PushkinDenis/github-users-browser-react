@@ -21,13 +21,13 @@ export const Main: FC = () => {
       try {
         fetchData(`100`, `${params}00`).then((result) => setUsers(result));
       } catch (error) {
-        console.log(error);
+        console.error("Error", error);
       }
     } else if (params === "1") {
       try {
         fetchData(`100`, `0`).then((result) => setUsers(result));
       } catch (error) {
-        console.log(error);
+        console.error("Error", error);
       }
     }
   }, [location.search, page, searchParams, click]);
