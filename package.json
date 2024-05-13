@@ -26,6 +26,7 @@
     "react-router-dom": "^6.23.0",
     "sass": "^1.74.1",
     "sort-by": "^0.0.2",
+    "use-debounce": "^10.0.0",
     "vite-plugin-checker": "^0.6.4"
   },
   "devDependencies": {
