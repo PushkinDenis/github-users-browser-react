@@ -2,7 +2,6 @@ import styles from "./input.module.scss";
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import "../../../../variables.scss";
 import { useDebounce } from "use-debounce";
 
 type InputProps = {
