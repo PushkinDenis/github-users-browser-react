@@ -11,6 +11,11 @@ type InputProps = {
   label?: string;
 };
 
+type UserSearchCardProps = {
+  login: string;
+  html_url: string;
+};
+
 const theme = createTheme({
   components: {
     MuiFormLabel: {
@@ -54,14 +59,9 @@ const theme = createTheme({
   },
 });
 
-type UserSearchCardType = {
-  login: string;
-  html_url: string;
-};
-
 export const Input: FC<InputProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState<UserSearchCardType | null>(null);
+  const [result, setResult] = useState<UserSearchCardProps | null>(null);
 
   const [debounced] = useDebounce(searchTerm, 1000);
 
