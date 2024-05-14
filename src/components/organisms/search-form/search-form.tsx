@@ -13,7 +13,7 @@ export const SearchForm: FC = () => {
         <Input />
         {searchValue && searchValue.login && (
           <>
-            <SearchCard login={searchValue.login} id={searchValue.id} html_url={searchValue.html_url} />
+            <SearchCard avatar_url={searchValue.avatar_url} login={searchValue.login} id={searchValue.id} html_url={searchValue.html_url} />
           </>
         )}
       </div>
