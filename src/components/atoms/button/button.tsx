@@ -1,7 +1,7 @@
 import styles from "./button.module.scss";
 import { FC, useContext } from "react";
 import { clsx } from "clsx";
-import { ClickContext, UsersContext, PageContext } from "@/App.tsx";
+import { UsersContext, PageContext } from "@/App.tsx";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { fetchData } from "@helpers";
 
@@ -12,7 +12,6 @@ export type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
-  const { setClick } = useContext<any>(ClickContext);
   const { setUsers } = useContext<any>(UsersContext);
   const { page } = useContext<any>(PageContext);
   const location = useLocation();
@@ -24,7 +23,6 @@ export const Button: FC<ButtonProps> = ({ type, className, textContent }) => {
         type={type}
         className={clsx(styles.button, styles[`${className}`])}
         onClick={() => {
-          setClick(true);
           if (location.search === "") {
             setSearchParams("?page=1");
             try {

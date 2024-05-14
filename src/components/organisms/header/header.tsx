@@ -1,8 +1,8 @@
 import { FC } from "react";
 import clsx from "clsx";
 import styles from "./header.module.scss";
-import { Image, Input } from "@atoms";
-import { Navbar } from "@organisms";
+import { Image } from "@atoms";
+import { Navbar, SearchForm } from "@organisms";
 import { useMediaQuery } from "react-responsive";
 
 export const Header: FC = () => {
@@ -17,7 +17,7 @@ export const Header: FC = () => {
           <>
             <Image src={`./icons/github-purple-icon.svg`} alt={"logo"} className={"logo"} />
             <Navbar />
-            <Input />
+            <SearchForm />
           </>
         )}
         {isTabletOrMobile && (

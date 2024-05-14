@@ -1,5 +1,5 @@
 import styles from "./input.module.scss";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useDebounce } from "use-debounce";
@@ -9,11 +9,6 @@ type InputProps = {
   placeholder?: string;
   value?: string;
   label?: string;
-};
-
-type UserSearchCardProps = {
-  login: string;
-  html_url: string;
 };
 
 const theme = createTheme({
@@ -61,8 +56,7 @@ const theme = createTheme({
 
 export const Input: FC<InputProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState<UserSearchCardProps | null>(null);
-
+  const [result, setResult] = useState<any>(null);
   const [debounced] = useDebounce(searchTerm, 1000);
 
   useEffect(() => {
@@ -90,15 +84,11 @@ export const Input: FC<InputProps> = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <TextField id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
-      </ThemeProvider>
-      {result && result.login && (
-        <>
-          <div>{result.login}</div>
-          <div>{result.html_url}</div>
-        </>
-      )}
+      <div className={styles.wrapper}>
+        <ThemeProvider theme={theme}>
+          <TextField id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
+        </ThemeProvider>
+      </div>
     </>
   );
 };
