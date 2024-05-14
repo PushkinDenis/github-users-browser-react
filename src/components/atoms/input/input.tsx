@@ -85,7 +85,7 @@ export const Input: FC<InputProps> = () => {
     <>
       <div className={styles.wrapper}>
         <ThemeProvider theme={theme}>
-          <TextField sx={{ input: { color: "black", width: "100%" } }} fullWidth id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
+          <TextField sx={{ input: { width: "100%" } }} fullWidth id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
         </ThemeProvider>
       </div>
     </>
