@@ -3,6 +3,7 @@ import { ChangeEvent, FC, useEffect, useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useDebounce } from "use-debounce";
+import { SearchContext } from "@/App.tsx";
 
 type InputProps = {
   type?: "text" | "password" | "radio" | "checkbox" | "hidden" | "button" | "image" | "reset" | "file" | "submit";
@@ -56,7 +57,7 @@ const theme = createTheme({
 
 export const Input: FC<InputProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const { setSearchValue } = useContext<any>(SearchContext);
   const [debounced] = useDebounce(searchTerm, 1000);
 
   useEffect(() => {
@@ -64,8 +65,7 @@ export const Input: FC<InputProps> = () => {
       try {
         const response = await fetch(`https://api.github.com/users/${debounced}`);
         const json = await response.json();
-        setResult(json);
-        console.log(result);
+        setSearchValue(json);
       } catch (error) {
         console.error("Error fetching", error);
       }
@@ -73,7 +73,7 @@ export const Input: FC<InputProps> = () => {
     if (debounced) {
       fetchData();
     } else {
-      setResult(null);
+      setSearchValue(null);
     }
   }, [debounced]);
 

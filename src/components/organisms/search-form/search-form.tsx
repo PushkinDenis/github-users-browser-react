@@ -1,17 +1,19 @@
 import styles from "./search-form.module.scss";
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 import { SearchCard } from "@organisms";
 import { Input } from "@atoms";
+import { SearchContext } from "@/App.tsx";
 
 export const SearchForm: FC = () => {
-  const [result] = useState<any>("");
+  const { searchValue } = useContext<any>(SearchContext);
+
   return (
     <>
       <div className={styles.searchform}>
         <Input />
-        {result && result.login && (
+        {searchValue && searchValue.login && (
           <>
-            <SearchCard login={result.login} id={result.id} html_url={result.html_url}></SearchCard>
+            <SearchCard login={searchValue.login} id={searchValue.id} html_url={searchValue.html_url} />
           </>
         )}
       </div>

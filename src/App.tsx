@@ -14,17 +14,14 @@ export type PageContextType = {
   setPage: Dispatch<SetStateAction<number>>;
 };
 
-export type ClickContentType = {
-  click: boolean | undefined;
-  setClick: Dispatch<SetStateAction<boolean>>;
-};
-
 export const UsersContext = createContext<UsersContextType | undefined | UserCardProps[]>([]);
 export const PageContext = createContext<any>(0);
+export const SearchContext = createContext<any>(null);
 
 export const App: FC = () => {
   const [users, setUsers] = useState<UserCardProps[]>([]);
   const [page, setPage] = useState<any>(0);
+  const [searchValue, setSearchValue] = useState<any>(null);
 
   return (
     <UsersContext.Provider
@@ -34,11 +31,13 @@ export const App: FC = () => {
       }}
     >
       <PageContext.Provider value={{ page, setPage }}>
-        <div className={clsx(styles.app)}>
-          <Header />
-          <Main />
-          <Footer />
-        </div>
+        <SearchContext.Provider value={{ searchValue, setSearchValue }}>
+          <div className={clsx(styles.app)}>
+            <Header />
+            <Main />
+            <Footer />
+          </div>
+        </SearchContext.Provider>
       </PageContext.Provider>
     </UsersContext.Provider>
   );
