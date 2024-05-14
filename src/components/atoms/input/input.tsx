@@ -33,7 +33,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: "var(--color-white)",
-          width: "300px",
           borderColor: "var(--color-white)",
           ".MuiOutlinedInput-notchedOutline": {
             borderColor: "var(--color-white)",
@@ -86,7 +85,7 @@ export const Input: FC<InputProps> = () => {
     <>
       <div className={styles.wrapper}>
         <ThemeProvider theme={theme}>
-          <TextField id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
+          <TextField sx={{ input: { color: "black", width: "100%" } }} fullWidth id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
         </ThemeProvider>
       </div>
     </>
