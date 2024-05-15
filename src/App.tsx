@@ -8,23 +8,23 @@ export type UsersContextType = {
   users: UserCardProps[] | undefined;
   setUsers: Dispatch<SetStateAction<UserCardProps[]>>;
 };
-
 export type PageContextType = {
   page: number | undefined;
   setPage: (page: number) => void;
 };
-
 export type SearchContextType = {
   searchValue: { login: string; id: string; avatar_url: string; html_url: string } | null;
   setSearchValue: Dispatch<SetStateAction<{ login: string; id: string; avatar_url: string; html_url: string } | null>>;
 };
-
 export type InputClickContextType = {
   InputClick: boolean;
   setInputClick: Dispatch<SetStateAction<boolean>>;
 };
 
-export const UsersContext = createContext<UsersContextType | undefined | UserCardProps[]>([]);
+export const UsersContext = createContext<UsersContextType>({
+  users: [],
+  setUsers: () => {},
+});
 export const PageContext = createContext<PageContextType>({
   page: 0,
   setPage: () => {},
