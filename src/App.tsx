@@ -8,21 +8,31 @@ export type UsersContextType = {
   users: UserCardProps[] | undefined;
   setUsers: Dispatch<SetStateAction<UserCardProps[]>>;
 };
-
 export type PageContextType = {
   page: number | undefined;
-  setPage: Dispatch<SetStateAction<number>>;
+  setPage: (page: number) => void;
+};
+
+export type SearchContextType = {
+  searchValue: { login: string; id: string; avatar_url: string; html_url: string } | null;
+  setSearchValue: Dispatch<SetStateAction<{ login: string; id: string; avatar_url: string; html_url: string } | null>>;
 };
 
 export const UsersContext = createContext<UsersContextType | undefined | UserCardProps[]>([]);
-export const PageContext = createContext<any>(0);
-export const SearchContext = createContext<any>(null);
+export const PageContext = createContext<PageContextType>({
+  page: 0,
+  setPage: () => {},
+});
+export const SearchContext = createContext<SearchContextType>({
+  searchValue: null,
+  setSearchValue: () => {},
+});
 export const InputClickContext = createContext<any>(null);
 
 export const App: FC = () => {
   const [users, setUsers] = useState<UserCardProps[]>([]);
-  const [page, setPage] = useState<any>(0);
-  const [searchValue, setSearchValue] = useState<any>(null);
+  const [page, setPage] = useState<number>(0);
+  const [searchValue, setSearchValue] = useState<{ login: string; id: string; avatar_url: string; html_url: string } | null>(null);
   const [InputClick, setInputClick] = useState<any>(false);
 
   return (

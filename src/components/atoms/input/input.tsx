@@ -3,7 +3,7 @@ import { ChangeEvent, FC, useEffect, useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useDebounce } from "use-debounce";
-import { SearchContext, InputClickContext } from "@/App.tsx";
+import { SearchContext, InputClickContext, SearchContextType } from "@/App.tsx";
 
 type InputProps = {
   type?: "text" | "password" | "radio" | "checkbox" | "hidden" | "button" | "image" | "reset" | "file" | "submit";
@@ -58,7 +58,7 @@ export const Input: FC<InputProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [debounced] = useDebounce(searchTerm, 1000);
 
-  const { setSearchValue } = useContext<any>(SearchContext);
+  const { setSearchValue } = useContext<SearchContextType>(SearchContext);
   const { InputClick, setInputClick } = useContext<any>(InputClickContext);
 
   useEffect(() => {

@@ -3,19 +3,19 @@ import { clsx } from "clsx";
 import styles from "./main.module.scss";
 import { UserCard, UserCardProps } from "@organisms";
 import { Pagination } from "@atoms";
-import { UsersContext, PageContext } from "@/App.tsx";
+import { UsersContext, PageContext, PageContextType } from "@/App.tsx";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { fetchData } from "@helpers";
 
 export const Main: FC = () => {
   const { users, setUsers } = useContext<any>(UsersContext);
-  const { page, setPage } = useContext<any>(PageContext);
+  const { page, setPage } = useContext<PageContextType>(PageContext);
   const [searchParams] = useSearchParams("");
   const location = useLocation();
 
   useEffect(() => {
     const params = location.search.slice(6);
-    setPage(params);
+    setPage(parseInt(params));
     if (params !== "" && params !== "1") {
       try {
         fetchData(`100`, `${params}00`).then((result) => setUsers(result));
