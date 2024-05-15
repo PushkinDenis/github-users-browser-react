@@ -81,6 +81,7 @@ export const Input: FC<InputProps> = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = e.target as HTMLInputElement;
     setSearchTerm(target.value);
+    setInputClick(true);
   };
 
   const inputClick = () => {
