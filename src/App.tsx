@@ -17,11 +17,13 @@ export type PageContextType = {
 export const UsersContext = createContext<UsersContextType | undefined | UserCardProps[]>([]);
 export const PageContext = createContext<any>(0);
 export const SearchContext = createContext<any>(null);
+export const InputClickContext = createContext<any>(null);
 
 export const App: FC = () => {
   const [users, setUsers] = useState<UserCardProps[]>([]);
   const [page, setPage] = useState<any>(0);
   const [searchValue, setSearchValue] = useState<any>(null);
+  const [InputClick, setInputClick] = useState<any>(false);
 
   return (
     <UsersContext.Provider
@@ -32,11 +34,13 @@ export const App: FC = () => {
     >
       <PageContext.Provider value={{ page, setPage }}>
         <SearchContext.Provider value={{ searchValue, setSearchValue }}>
-          <div className={clsx(styles.app)}>
-            <Header />
-            <Main />
-            <Footer />
-          </div>
+          <InputClickContext.Provider value={{ InputClick, setInputClick }}>
+            <div className={clsx(styles.app)}>
+              <Header />
+              <Main />
+              <Footer />
+            </div>
+          </InputClickContext.Provider>
         </SearchContext.Provider>
       </PageContext.Provider>
     </UsersContext.Provider>

@@ -3,7 +3,7 @@ import { ChangeEvent, FC, useEffect, useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useDebounce } from "use-debounce";
-import { SearchContext } from "@/App.tsx";
+import { SearchContext, InputClickContext } from "@/App.tsx";
 
 type InputProps = {
   type?: "text" | "password" | "radio" | "checkbox" | "hidden" | "button" | "image" | "reset" | "file" | "submit";
@@ -56,8 +56,10 @@ const theme = createTheme({
 
 export const Input: FC<InputProps> = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { setSearchValue } = useContext<any>(SearchContext);
   const [debounced] = useDebounce(searchTerm, 1000);
+
+  const { setSearchValue } = useContext<any>(SearchContext);
+  const { InputClick, setInputClick } = useContext<any>(InputClickContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,11 +83,15 @@ export const Input: FC<InputProps> = () => {
     setSearchTerm(target.value);
   };
 
+  const inputClick = () => {
+    InputClick ? setInputClick(false) : setInputClick(true);
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
         <ThemeProvider theme={theme}>
-          <TextField sx={{ input: { width: "100%" } }} fullWidth id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} />
+          <TextField sx={{ input: { width: "100%" } }} fullWidth id="outlined-search" label="Search" type="search" value={searchTerm} inputProps={{ className: styles.input }} onChange={handleInputChange} onClick={inputClick} />
         </ThemeProvider>
       </div>
     </>
