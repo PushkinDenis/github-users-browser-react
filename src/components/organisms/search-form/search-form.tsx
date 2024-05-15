@@ -2,11 +2,11 @@ import styles from "./search-form.module.scss";
 import { FC, useContext } from "react";
 import { SearchCard } from "@organisms";
 import { Input } from "@atoms";
-import { SearchContext, InputClickContext, SearchContextType } from "@/App.tsx";
+import { SearchContext, InputClickContext, SearchContextType, InputClickContextType } from "@/App.tsx";
 
 export const SearchForm: FC = () => {
   const { searchValue } = useContext<SearchContextType>(SearchContext);
-  const { InputClick } = useContext<any>(InputClickContext);
+  const { InputClick } = useContext<InputClickContextType>(InputClickContext);
   return (
     <>
       <div className={styles.searchform}>

@@ -8,6 +8,7 @@ export type UsersContextType = {
   users: UserCardProps[] | undefined;
   setUsers: Dispatch<SetStateAction<UserCardProps[]>>;
 };
+
 export type PageContextType = {
   page: number | undefined;
   setPage: (page: number) => void;
@@ -16,6 +17,11 @@ export type PageContextType = {
 export type SearchContextType = {
   searchValue: { login: string; id: string; avatar_url: string; html_url: string } | null;
   setSearchValue: Dispatch<SetStateAction<{ login: string; id: string; avatar_url: string; html_url: string } | null>>;
+};
+
+export type InputClickContextType = {
+  InputClick: boolean;
+  setInputClick: Dispatch<SetStateAction<boolean>>;
 };
 
 export const UsersContext = createContext<UsersContextType | undefined | UserCardProps[]>([]);
@@ -27,13 +33,16 @@ export const SearchContext = createContext<SearchContextType>({
   searchValue: null,
   setSearchValue: () => {},
 });
-export const InputClickContext = createContext<any>(null);
+export const InputClickContext = createContext<InputClickContextType>({
+  InputClick: false,
+  setInputClick: () => {},
+});
 
 export const App: FC = () => {
   const [users, setUsers] = useState<UserCardProps[]>([]);
   const [page, setPage] = useState<number>(0);
   const [searchValue, setSearchValue] = useState<{ login: string; id: string; avatar_url: string; html_url: string } | null>(null);
-  const [InputClick, setInputClick] = useState<any>(false);
+  const [InputClick, setInputClick] = useState<boolean>(false);
 
   return (
     <UsersContext.Provider
