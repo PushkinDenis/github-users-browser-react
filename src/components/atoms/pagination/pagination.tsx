@@ -25,6 +25,7 @@ const theme = createTheme({
 
           "&.Mui-selected:hover": {
             color: "var(--color-white)",
+            backgroundColor: "var(--color-purple)",
           },
           "&.Mui-focused": {
             backgroundColor: "white",
